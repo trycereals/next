@@ -1,0 +1,20 @@
+{
+  "name": "next-submodule",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "prepare:stories": "node ./scripts/prepare.stories.js",
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "export": "next export"
+  },
+  "dependencies": {
+    "next": "9.3.0",
+    "react": "16.13.0",
+    "react-dom": "16.13.0"
+  },
+  "devDependencies": {
+    "shelljs": "^0.8.3"
+  }
+}
