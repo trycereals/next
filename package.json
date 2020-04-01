@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare": "node ./scripts/prepare.js",
+    "prepare:build": "node ./scripts/prepare.js",
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
@@ -19,6 +19,7 @@
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "shelljs": "^0.8.3"
   }
 }
