@@ -1,8 +1,6 @@
-const path = require('path')
-
-module.exports = {
-  webpack(config, options) {
-    config.resolve.alias['stories'] = path.join(__dirname, 'stories')
-    return config
-  }
-};
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/
+})
+module.exports = withMDX({
+  pageExtensions: ['mdx', 'js']
+})
