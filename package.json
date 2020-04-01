@@ -10,9 +10,13 @@
     "export": "next export"
   },
   "dependencies": {
+    "@mdx-js/react": "^1.5.8",
     "next": "9.3.0",
     "react": "16.13.0",
-    "react-dom": "16.13.0"
+    "react-dom": "16.13.0",
+    "test-cereal-mdx-kit-deployment": "^0.0.10",
+    "test-cerealkit-deployment": "^0.0.8",
+    "theme-ui": "^0.3.1"
   },
   "devDependencies": {
     "shelljs": "^0.8.3"
