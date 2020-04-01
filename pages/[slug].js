@@ -98,16 +98,16 @@ export async function getStaticProps(context) {
   const dotenv = require('dotenv')
   const shell = require('shelljs')
 
-  const envPath = path.join(process.cwd(), '.env')
+  // const envPath = path.join(process.cwd(), '.env')
 
-  if (!shell.test('-f', envPath)) {
-    console.error(`[pages/[slug]] Unable to find env file at path "${envPath}"`)
-    return process.exit(-1)
-  }
+  // if (!shell.test('-f', envPath)) {
+  //   console.error(`[pages/[slug]] Unable to find env file at path "${envPath}"`)
+  //   return process.exit(-1)
+  // }
 
-  dotenv.config({
-    path: envPath
-  })
+  // dotenv.config({
+  //   path: envPath
+  // })
 
   const component = await import(`../mdx/${context.params.slug}.mdx`)
   const paid = ((component) => {
