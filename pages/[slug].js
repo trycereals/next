@@ -137,7 +137,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths(context) {
   const fs = require('fs')
   const path = require('path')
-  const fetch = require('fetch')
+  const fetch = require('node-fetch')
   
   const pagesPath = path.join(
     process.cwd(),
