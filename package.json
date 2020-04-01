@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare:stories": "node ./scripts/prepare.stories.js",
+    "prepare": "node ./scripts/prepare.js",
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
