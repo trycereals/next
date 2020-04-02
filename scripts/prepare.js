@@ -30,4 +30,4 @@ const shell = require('shelljs')
 //   return process.exit(-1)
 // }
 
-shell.cp('-R', '../mdx', process.cwd())
+shell.cp('-R', '../pages', path.join(process.cwd(), 'app_pages'))

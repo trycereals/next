@@ -53,7 +53,7 @@ export default ({ meta = {}, paid = false, usecomments = true }) => {
 
   const [pageProps, setPageProps] = useState({ moduleRight: false })
 
-  const Component = paid ? Login : dynamic(() => import(`../mdx/${slug || 'index'}.mdx`))
+  const Component = paid ? Login : dynamic(() => import(`../app_pages/${slug || 'index'}.mdx`))
 
   const [formState, setFormState] = useState({})
   const handleSubmit = e => {

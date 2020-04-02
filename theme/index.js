@@ -3,11 +3,11 @@ import React, { memo } from 'react'
 
 import { Global } from '@emotion/core'
 import { jsx, useThemeUI, ThemeProvider as ThemeP, Styled } from 'theme-ui'
-import { swiss } from '@theme-ui/presets'
-import theme from './theme'
+
+import theme from '../../theme.json'
 
 const ThemeProvider = memo(({ children, ...props }) => (
-  <ThemeP theme={{ ...swiss, ...theme }} {...props}>
+  <ThemeP theme={theme} {...props}>
     <Styled.root>{children}</Styled.root>
   </ThemeP>
 ))
