@@ -4,7 +4,7 @@ import React, { memo } from 'react'
 import { Global } from '@emotion/core'
 import { jsx, useThemeUI, ThemeProvider as ThemeP, Styled } from 'theme-ui'
 
-import theme from '../../theme.json'
+import theme from '../app/theme.json'
 
 const ThemeProvider = memo(({ children, ...props }) => (
   <ThemeP theme={theme} {...props}>
@@ -36,7 +36,13 @@ const Reset = () => (
       code: {
         padding: '2px 4px',
         fontFamily: theme.fonts.body,
-        background: theme.colors.code
+        background: theme.colors.muted
+      },
+      a: {
+        textDecoration: 'none',
+        ':-webkit-any-link': {
+          textDecoration: 'none',
+        }
       }
     }}
   />
