@@ -1,33 +1,11 @@
-const dotenv = require('dotenv')
 const path = require('path')
 const shell = require('shelljs')
 
-// const MDX_PATH = 'src/stories'
+shell.rm("-R", path.join(process.cwd(), "app"))
+shell.mkdir(path.join(process.cwd(), "app"));
 
-// const envPath = path.join(
-//   process.cwd(),
-//   '..',
-//   '.env'
-// )
+shell.cp('-R', '../pages', path.join(process.cwd(), 'app/pages'))
+shell.cp('-R', '../layout', path.join(process.cwd(), 'app/layout'))
+shell.cp("../theme.json", path.join(process.cwd(), "app/theme.json"))
 
-// if (!shell.test('-f', envPath)) {
-//   console.error(`[prepare.stories] Unable to find env file at path "${envPath}"`)
-//   return process.exit(-1)
-// }
-
-// dotenv.config({
-//   path: envPath
-// })
-
-// const storiesPath = path.join(
-//   process.cwd(),
-//   '..',
-//   process.env.STORIES_PATH || DEFAULT_STORIES_PATH
-// )
-
-// if (!shell.test('-d', storiesPath)) {
-//   console.error(`[prepare.stories] Unable to find stories folder at "${storiesPath}"`)
-//   return process.exit(-1)
-// }
-
-shell.cp('-R', '../pages', path.join(process.cwd(), 'app_pages'))
+shell.exec('node scripts/sub/writeLayout')
