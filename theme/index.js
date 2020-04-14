@@ -35,8 +35,12 @@ const Reset = () => (
       },
       code: {
         padding: '2px 4px',
-        fontFamily: theme.fonts.body,
-        background: theme.colors.muted
+        ...(theme.fonts ? {
+          fontFamily: theme.fonts.body,
+        } : {}),
+        ...(theme.colors ? {
+          background: theme.colors.muted
+        } : {}),
       },
       a: {
         textDecoration: 'none',

@@ -1,11 +1,20 @@
 const path = require('path')
-const shell = require('shelljs')
+const sh = require('shelljs')
 
-shell.rm("-R", path.join(process.cwd(), "app"))
-shell.mkdir(path.join(process.cwd(), "app"));
+sh.rm("-R", path.join(process.cwd(), "app"))
+sh.mkdir(path.join(process.cwd(), "app"));
 
-shell.cp('-R', '../pages', path.join(process.cwd(), 'app/pages'))
-shell.cp('-R', '../layout', path.join(process.cwd(), 'app/layout'))
-shell.cp("../theme.json", path.join(process.cwd(), "app/theme.json"))
+sh.cp('-R', '../pages', path.join(process.cwd(), 'app/pages'))
+sh.cp('-R', '../layout', path.join(process.cwd(), 'app/layout'))
 
-shell.exec('node scripts/sub/writeLayout')
+if (sh.test('-d', '../theme')) {
+  sh.cp('-R', '../theme', path.join(process.cwd(), 'app/theme'))
+} else if (sh.test('-e', '../theme.json')) {
+  sh.cp("../theme.json", path.join(process.cwd(), "app/theme.json"));
+}
+
+if (sh.test('-e', '../customs.js')) {
+  sh.cp("../customs.js", path.join(process.cwd(), "app/customs.js"));
+}
+
+sh.exec('node scripts/sub/writeLayout')

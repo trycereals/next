@@ -27,10 +27,12 @@ export async function getStaticProps(context) {
   })(component)
 
   const meta = component.meta || component.Meta || component.default.Meta || {}
+  const { hideLayout } = component
   return {
     props: {
       meta,
-      paid
+      paid,
+      hideLayout: hideLayout || null
     },
   }
 }

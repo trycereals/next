@@ -33,7 +33,6 @@ const mdxComponents = {
     
     return (
       <MdxWrapper
-        pageAs="main"
         containerProps={{ sx }}
         {...props}
         pageProps={{ moduleRight: true }}
@@ -44,11 +43,16 @@ const mdxComponents = {
 
 class MyApp extends App {
 
-  componentDidCatch() {
-    console.error('did catch here!')
-  }
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps = {} } = this.props
+
+    console.log({
+      _app: true,
+      Component,
+      pageProps
+    })
+
+    const { hideLayout } = pageProps
 
     return (
       <Fragment>
@@ -57,9 +61,9 @@ class MyApp extends App {
           components={mdxComponents}
         >
           <ThemeProvider>
-            <Header />
+            {!hideLayout && <Header />}
             <Component {...pageProps} />
-            <Footer />
+            {!hideLayout && <Footer />}
           </ThemeProvider>
         </MDXProvider>
       </Fragment>
