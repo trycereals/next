@@ -17,7 +17,13 @@ import { Header, Footer } from '../app/layout'
 
 const mdxComponents = {
   ...catalog,
-  wrapper: (props) => {
+  wrapper: ({
+    containerProps,
+    Layout,
+    isLayout,
+    LayoutProps: mdxLayoutProps,
+    children
+}) => {
     const { theme } = useThemeUI()
     const sx = (theme.layout && theme.layout.container) ? theme.layout.container : {}
 
@@ -31,11 +37,14 @@ const mdxComponents = {
       `)
     }
     
+    const finalLayoutProps = mdxLayoutProps || (!isLayout ? { as: 'main' } : {})
+
     return (
       <MdxWrapper
-        containerProps={{ sx }}
-        {...props}
-        pageProps={{ moduleRight: true }}
+        children={children}
+        containerProps={containerProps || { sx }}
+        Layout={Layout}
+        layoutProps={finalLayoutProps}
       />
     )
   }
@@ -45,25 +54,16 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps = {} } = this.props
-
-    console.log({
-      _app: true,
-      Component,
-      pageProps
-    })
-
-    const { hideLayout } = pageProps
+    const { hideLayout, ...all } = pageProps
 
     return (
       <Fragment>
         <Reset />
-        <MDXProvider
-          components={mdxComponents}
-        >
+        <MDXProvider components={mdxComponents}>
           <ThemeProvider>
             {!hideLayout && <Header />}
             <Component {...pageProps} />
-            {!hideLayout && <Footer />}
+            {!hideLayout && <Footer isLayout />}
           </ThemeProvider>
         </MDXProvider>
       </Fragment>

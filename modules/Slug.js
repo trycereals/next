@@ -1,45 +1,12 @@
-import { memo, useState, Fragment } from 'react'
+import { useState, Fragment } from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { MDXProvider } from "@mdx-js/react"
 
-// import Comments from '../modules/comments'
-
-import { MdxWrapper } from "test-cereal-mdx-kit-deployment/es";
-import catalog from "test-cereal-mdx-kit-deployment/es/catalog"
-
-import { Box, Flex, useThemeUI } from 'theme-ui'
+import { Box } from 'theme-ui'
 
 const Login = () => <div>Login to see this page!</div>
 
-const mdxComponents = {
-  ...catalog,
-  wrapper: (props) => {
-    const { theme } = useThemeUI()
-    const sx = (theme.layout && theme.layout.container) ? theme.layout.container : {}
-
-    if (
-      Object.keys(sx).length === 0
-      && process.env.NODE_ENV !== 'production'
-    ) {
-      console.warn(`
-        Your theme does not contain key "layout.container". You probably want to to set something there\n.
-        Known bug: don't reference other styles like maxWidth: 'container'
-      `)
-    }
-    
-    console.log('wrapper props', props)
-    return (
-      <MdxWrapper
-        pageAs="main"
-        containerProps={{ sx }}
-        {...props}
-        pageProps={{ moduleRight: true }}
-      />
-    )
-  }
-}
 
 const encode = data => {
   return Object.keys(data)
@@ -84,12 +51,7 @@ export default ({ meta = {}, paid = false, usecomments = true, slug }) => {
         { meta.title && <title>{meta.title}</title>}
       </Head>
       <Box className="hello-flex">
-        <MDXProvider
-          components={mdxComponents}
-          pageProgs={pageProps}
-        >
-          <Component />
-        </MDXProvider>
+        <Component />
         {/* {
           usecomments && <Comments formName={formName} />
         } */}

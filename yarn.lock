@@ -6825,10 +6825,10 @@ terser@^4.1.2:
     source-map "~0.6.1"
     source-map-support "~0.5.12"
 
-test-cereal-mdx-kit-deployment@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/test-cereal-mdx-kit-deployment/-/test-cereal-mdx-kit-deployment-0.0.10.tgz#03313d9a0a18e377c6f4203ae8f06c65fb11b34e"
-  integrity sha512-XwTxhuuKPQl+8V2BeuydEOAlbthnek1DQqJUv9L3IUuPiagxo+ImfSup06Us82PmLw48ugLjdzRlsGRQ1Vc82A==
+test-cereal-mdx-kit-deployment@0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/test-cereal-mdx-kit-deployment/-/test-cereal-mdx-kit-deployment-0.0.14.tgz#eca049c41b6d8f6610b1eb9c20bbcab688e54cc9"
+  integrity sha512-Xt2SNtakyH9PWOL3tL+vGIdJ2ibYdilSqkLiGE93APC9XemysVh57FzrqH0ivDiQLiZJRCtgy79yY9bOh+hSWg==
   dependencies:
     "@emotion/core" "^10.0.27"
     "@emotion/styled" "^10.0.27"
