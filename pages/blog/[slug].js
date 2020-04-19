@@ -6,12 +6,11 @@ import Slug, {
 export default (props) => <Slug {...props} />
 
 export async function getStaticProps(context) {
-  console.log(context.params)
   return await getSlugStaticProps({
     ...context,
     params: {
       ...context.params,
-      path: null
+      path: 'blog'
     }
   })
 }
@@ -19,7 +18,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   return await getSlugStaticPaths({
     params: {
-      path: null,
+      path: 'blog',
     }
   })
 }

@@ -8,6 +8,7 @@ export async function getStaticProps(context) {
   return await getSlugStaticProps({
     params: {
       slug: 'index',
+      path: 'blog',
     }
   })
 }

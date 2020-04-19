@@ -6,6 +6,9 @@ sh.mkdir(path.join(process.cwd(), "app"));
 
 sh.cp('-R', '../pages', path.join(process.cwd(), 'app/pages'))
 sh.cp('-R', '../layout', path.join(process.cwd(), 'app/layout'))
+if (sh.test('-d', '../public')) {
+  sh.cp('-R', '../public', process.cwd())
+}
 
 if (sh.test('-d', '../theme')) {
   sh.cp('-R', '../theme', path.join(process.cwd(), 'app/theme'))
