@@ -64,6 +64,8 @@ export async function getStaticPaths(context) {
   const path = require('path')
   const globby = require('globby')
 
+  console.log('[Modules/Slug] Running v 0.0.16')
+
   const { path: subpath } = context.params
 
   const pagesPath = path.join(
