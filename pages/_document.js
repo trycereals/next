@@ -1,6 +1,5 @@
 import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { InitializeColorMode } from 'theme-ui'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -13,7 +12,6 @@ class MyDocument extends Document {
       <Html>
         <Head />
         <body>
-          <InitializeColorMode />
           <Main />
           <NextScript />
         </body>
