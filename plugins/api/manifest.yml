@@ -1,0 +1,7 @@
+name: trycereals-plugin-fs
+
+inputs:
+  - name: generatedFunctionName
+  - name: publishDirJSONFileName
+  - name: exclude
+  - name: excludeRootFiles

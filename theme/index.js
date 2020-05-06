@@ -4,7 +4,7 @@ import React, { memo } from 'react'
 import { Global } from '@emotion/core'
 import { jsx, useThemeUI, ThemeProvider as ThemeP, Styled } from 'theme-ui'
 
-import theme from '../app/theme.json'
+import theme from '../app/theme'
 
 const ThemeProvider = memo(({ children, ...props }) => (
   <ThemeP theme={theme} {...props}>
