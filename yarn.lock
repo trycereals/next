@@ -4191,18 +4191,6 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-extract-mdx-export@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/extract-mdx-export/-/extract-mdx-export-0.0.1.tgz#5ad18ca1e40c68d6b411de24d7a27bcc487998f1"
-  integrity sha512-oMK0bw+9nc3GsNDzNN3fsp/Eki+jjE65COIv7lsRkO1+8+33270heLSgjYm6MYHhw0jhyEbp0+k96hCPbCvqwA==
-  dependencies:
-    "@babel/core" "^7.9.0"
-    "@babel/plugin-transform-react-jsx" "^7.9.4"
-    "@babel/preset-env" "^7.9.5"
-    "@mdx-js/mdx" "^1.5.9"
-    ast-to-literal "^0.0.1"
-    core-js-compat "^3.6.5"
-
 extsprintf@1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
@@ -6195,6 +6183,18 @@ mdurl@^1.0.0, mdurl@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
+
+mdx-extract-export@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/mdx-extract-export/-/mdx-extract-export-0.0.1.tgz#8b81ff9f35f9b09360adb899c334a6ff78147ef0"
+  integrity sha512-TQPDBEoD3uNJ4CM6FjuWbStKZw1K3QIXJAbhNbH7dfd16XLizlUbV/jh3MmIg4tlxk4gxu0UCCNZUHEBhhDbJw==
+  dependencies:
+    "@babel/core" "^7.9.0"
+    "@babel/plugin-transform-react-jsx" "^7.9.4"
+    "@babel/preset-env" "^7.9.5"
+    "@mdx-js/mdx" "^1.5.9"
+    ast-to-literal "^0.0.1"
+    core-js-compat "^3.6.5"
 
 memoize-one@^5.1.1:
   version "5.1.1"
@@ -8989,10 +8989,10 @@ terser@^4.1.2:
     source-map "~0.6.1"
     source-map-support "~0.5.12"
 
-test-cereal-mdx-kit-deployment@^0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/test-cereal-mdx-kit-deployment/-/test-cereal-mdx-kit-deployment-0.0.16.tgz#e0c27e1a1537a76b0045ec3e847782d7a8ce5e6a"
-  integrity sha512-TcLLKR2TRg7FsUJo4maRJ2xhPOogcxa9qgVZPZp51BuozOCm4GfhUJF0CX990UCQrUZ4CuLcfNloH3GZB+Vgiw==
+test-cereal-mdx-kit-deployment@0.0.18:
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/test-cereal-mdx-kit-deployment/-/test-cereal-mdx-kit-deployment-0.0.18.tgz#e1f3c24b1c0a2bbf5071d5dd43632ae843116de9"
+  integrity sha512-w0L6utKbrxAVXyerokPK5FmqQHmcEhQl0dwRmklU1ZjSWNLVZAj56B0WoJtTxCq/utinhPDQQMfFaPGGfm23/A==
   dependencies:
     "@emotion/core" "^10.0.27"
     "@emotion/styled" "^10.0.27"

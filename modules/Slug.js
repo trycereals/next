@@ -1,23 +1,20 @@
-import { useState, Fragment } from 'react'
+import { Fragment } from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
 
 import { Box } from 'theme-ui'
 
-const Login = () => <div>Login to see this page!</div>
+// const Login = () => <div>Login to see this page!</div>
 
 export default ({ meta = {}, path, paid = false, usecomments = true, slug }) => {
-  const Component = paid
-  ? Login
-  : dynamic(() => import(`../app/pages/${ path ? `${path}/` : ''}${slug || 'index'}.mdx`))
+  const Component = dynamic(() => import(`../app/pages/${ path ? `${path}/` : ''}${slug || 'index'}.mdx`))
 
   return (
     <Fragment>
       <Head>
         { meta.title && <title>{meta.title}</title>}
       </Head>
-      <Box className="hello-flex">
+      <Box>
         <Component />
         {/* {
           usecomments && <Comments formName={formName} />
@@ -47,7 +44,7 @@ export async function getStaticProps(context) {
     return false
   })(component)
 
-  const { hideLayout, meta = {}, } = component
+  const { Layout, ContainerProps, LayoutProps = {}, hideLayout, meta = {}, } = component
 
   return {
     props: {
@@ -55,6 +52,9 @@ export async function getStaticProps(context) {
       paid,
       hideLayout: hideLayout || null,
       slug,
+      LayoutProps,
+      Layout: typeof Layout === 'string' ? Layout : '',
+      ContainerProps: ContainerProps || null,
       path: path || null
     },
   }

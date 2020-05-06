@@ -3,27 +3,30 @@ import React, { Fragment } from 'react'
 
 
 import ThemeProvider, { Reset } from '../theme'
+import { WithLayout as ComponentWithLayout } from '../modules/Layout'
 
-import { MdxProvider } from "../modules/MdxProvider"
+import {
+  Provider
+} from "../modules/MdxProvider"
 
-import { Header, Footer } from '../app/layout'
+import db from 'app/db.json'
+global.db = db
 
 class MyApp extends App {
 
   render() {
-    const { Component, pageProps = {} } = this.props
-    const { hideLayout, ...all } = pageProps
+    const { Component, pageProps = {}, ...rest } = this.props
 
     return (
       <Fragment>
         <Reset />
-        <MdxProvider>
           <ThemeProvider>
-            {!hideLayout && <Header />}
-            <Component {...pageProps} />
-            {!hideLayout && <Footer isLayout />}
+            <ComponentWithLayout
+              pageProps={pageProps}
+              Component={Component}
+              {...rest}
+            />
           </ThemeProvider>
-        </MdxProvider>
       </Fragment>
     )
   }
