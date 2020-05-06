@@ -27,6 +27,7 @@ yarn-error.log*
 
 # TryCereals
 /app
+/public/*
 
 # Netlify
 .netlify

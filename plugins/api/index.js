@@ -11,9 +11,9 @@ module.exports = {
   async onPreBuild(opts) {
       const {
       pluginConfig: {
-        pagesDir = '/pages',
-        skipRoot = true,
-        throwOnDataNotFound = true,
+        pagesDir = '../pages',
+        skipRoot = false,
+        throwOnDataNotFound = false,
         metaKeyName = 'meta',
         handleJsFiles = true
       },
@@ -34,6 +34,10 @@ module.exports = {
       paths.map(async (filePath) => {
         const code = await readFile(filePath, 'utf8')
         const res = await extract(code, { search: [metaKeyName] })
+
+        const splitPath = filePath.split(pagesPath)
+        const [fileSlug] = splitPath.pop().split('.')
+
         if (!res[metaKeyName] && throwOnDataNotFound) {
           throw new Error(`[netlify-plugin-file-api] Could not create API.\nReason: export "${metaKeyName}" not found at "${fileSlug}"`)
         }
@@ -41,13 +45,8 @@ module.exports = {
           throw new Error(`[netlify-plugin-file-api] Could not create API.\nReason: export "${metaKeyName}" is not properly formatted at "${fileSlug}"`)
         }
 
-        const splitPath = filePath.split(pagesPath)
-        const [fileSlug] = splitPath.pop().split('.')
         const slug = fileSlug.endsWith('/index') ? fileSlug.substr(0, fileSlug.length - 6) : fileSlug
 
-        console.log({
-        res: res
-        })
         return [
           slug,
           {
@@ -60,15 +59,10 @@ module.exports = {
       })
     )
 
-    // extremely provisoire
-
     const db = data.reduce((acc, [slug, meta]) => ({ ...acc, [slug]: meta }), {})
     fs.writeFileSync(
-      path.join(process.cwd(), 'next/app/db.json'),
+      path.join(process.cwd(), 'app/db.json'),
       JSON.stringify(db)
     )
-
-    console.log({ data })
-
   }
 }

@@ -1,0 +1,4 @@
+name: trycereals-build-prepare-folder
+
+inputs:
+  - name: appFolder

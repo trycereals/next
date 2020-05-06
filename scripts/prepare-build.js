@@ -19,5 +19,3 @@ if (sh.test('-d', '../theme')) {
 if (sh.test('-e', '../customs.js')) {
   sh.cp("../customs.js", path.join(process.cwd(), "app/customs.js"));
 }
-
-sh.exec('node scripts/sub/writeLayout')

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:site": "yarn run prepare:build && yarn build && yarn export",
+    "build:site": "yarn build && yarn export",
     "prepare:build": "node ./scripts/prepare-build.js",
     "prepare:commit": "node ./scripts/prepare-commit.js",
     "dev": "next dev",
