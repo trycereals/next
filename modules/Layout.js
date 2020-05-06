@@ -63,6 +63,7 @@ export const WithLayout = ({
           <Provider
             {...{
               ContainerProps: defaultContainerProps,
+              hideContainer,
               ...Comp,
             }}
           >
