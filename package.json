@@ -26,6 +26,9 @@
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
+    "@babel/generator": "^7.9.6",
+    "@babel/template": "^7.8.6",
+    "@babel/types": "^7.9.6",
     "dotenv": "^8.2.0",
     "mdx-extract-export": "^0.0.1",
     "shelljs": "^0.8.3"

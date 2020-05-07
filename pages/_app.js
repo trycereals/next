@@ -2,6 +2,7 @@ import App from 'next/app'
 import React, { Fragment } from 'react'
 
 
+import Head from '../modules/Head'
 import ThemeProvider, { Reset } from '../theme'
 import { WithLayout as ComponentWithLayout } from '../modules/Layout'
 
@@ -19,6 +20,7 @@ class MyApp extends App {
 
     return (
       <Fragment>
+        <Head {...pageProps.meta} />
         <Reset />
           <ThemeProvider>
             <ComponentWithLayout
