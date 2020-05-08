@@ -31,6 +31,7 @@
     "@babel/types": "^7.9.6",
     "dotenv": "^8.2.0",
     "mdx-extract-export": "^0.0.1",
+    "netlify-plugin-cache-nextjs": "^1.4.0",
     "shelljs": "^0.8.3"
   }
 }
