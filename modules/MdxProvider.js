@@ -58,14 +58,14 @@ export const Provider = ({ children, ...propsFromLayout }) => {
     const route = toRoute(href)
     if (!isDynamicRoute(route)) {
       return (
-        <Link {...args}>
+        <Link href={href} {...args}>
           {children}
         </Link>
       )
     }
 
     // Temp
-    const regexes = ['/', '/blog', '/[slug]', '/blog/[slug]'].map(r => ([r, getRouteRegex(r)]))
+    const regexes = ['/[slug]', '/blog/[slug]'].map(r => ([r, getRouteRegex(r)]))
     let routeMatch = regexes.reduce((acc, [r, { re }]) => !acc && re.test(route) ? r : acc, null)
 
     if (!routeMatch) {
