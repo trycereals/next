@@ -51,12 +51,26 @@ function getRouteRegex(normalizedRoute){
   }
 }
 
+function matchRoute(route, dynamicRoutes) {
+  if (route === '/') {
+    return '/'
+  }
+  const regs = dynamicRoutes.map(r => ([r, getRouteRegex(r)]))
+  const routeMatch = regs.reduce((acc, [r, { re }]) => !acc && re.test(route) ? r : acc, null)
+  if (!routeMatch) {
+    console.error(`[tryCereals/Link] could not find match for route ${route}`)
+  }
+  return routeMatch || '/'
+}
+
 export const Provider = ({ children, ...propsFromLayout }) => {
   const mdxComponents = {
   ...catalog,
   Link: ({children, as, href, ...args }) => {
     const route = toRoute(href)
-    if (!isDynamicRoute(route)) {
+    const routes = ['/[slug]', '/blog/[slug]']
+
+    if (route.indexOf('/') !== 0) {
       return (
         <Link href={href} {...args}>
           {children}
@@ -64,16 +78,12 @@ export const Provider = ({ children, ...propsFromLayout }) => {
       )
     }
 
-    // Temp
-    const regexes = ['/[slug]', '/blog/[slug]'].map(r => ([r, getRouteRegex(r)]))
-    let routeMatch = regexes.reduce((acc, [r, { re }]) => !acc && re.test(route) ? r : acc, null)
-
-    if (!routeMatch) {
-      console.error(`[tryCereals/Link] could not find match for route ${route}`)
-    }
-
     return (
-      <NextLink as={href} href={routeMatch || '/'} passHref>
+      <NextLink
+        as={href}
+        href={matchRoute(route, routes)}
+        passHref
+      >
         <Link {...args}>
           {children}
         </Link>
